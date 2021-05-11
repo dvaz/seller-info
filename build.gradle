@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.5'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+ext {
+	set('swaggerVersion', '2.8.0')	
+}
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation "io.springfox:springfox-swagger2:${swaggerVersion}"
+	implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
+	implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.4'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.4.4'
+
+}
+
+test {
+	useJUnitPlatform()
+}
